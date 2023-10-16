@@ -3,7 +3,7 @@ import { HelloInordic } from './components/inordic/inordic'
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <HelloInordic name='Компонент Hello Inordic'/>
     </div>
   );
