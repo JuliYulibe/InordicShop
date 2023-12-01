@@ -1,0 +1,46 @@
+img {
+    max-width: 100px;
+}
+
+.good-list{ 
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #2a284f;
+    padding: 20px 0;
+    position: relative;
+}
+
+.good-discr{
+    padding: 0;
+    margin: 0;
+    font-size: 10px;
+    color: #bdb2b2;
+}
+
+.good-price {
+    position: absolute;
+    right: 25px;
+}
+
+
+
+.fa-shopping-cart{
+    right: 10px;
+    bottom: 10px;
+}
+
+.fa-desktop{
+    right: 30px;
+    bottom: 10px;
+}
+
+.button-container{
+    position: absolute;
+    bottom: 1px;
+    left: 30px;
+
+}
+
+.button-container a{
+    margin: 3px;
+}

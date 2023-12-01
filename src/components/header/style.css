@@ -1,0 +1,98 @@
+ul.menu {
+    background: white;
+    border: 1px solid black;
+    list-style-type: none;
+    position: absolute;
+    right: 35px;
+    top: 25px;
+    margin: 0;
+    padding: 0;
+    z-index: 2;
+}
+li.menu-item {
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20px;
+    padding: 0 5px;
+}
+a{
+    color: #2a284f;
+    text-decoration: none;
+}
+a:hover{
+    color: #fdc931;
+}
+header{
+    width: 100%;
+    border-bottom: 1px solid black;
+    height: 50px;
+    display: flex;
+    padding: 5px;
+}
+nav{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.logo-container {
+    max-width: 100px;
+}
+.logo-container img{
+    width: 100%;
+}
+
+.fa-desktop{
+    right: 150px;
+}
+
+.light {
+    background-color: #fdc931;
+    color: #2a284f;
+}
+
+.dark {
+    background-color: #2a284f;
+    color: #fdc931;
+}
+
+.dark .fa-navicon:before, 
+.dark .fa-reorder:before, 
+.dark .fa-bars:before {
+    color: white;
+}
+
+.light .fa-navicon:before, 
+.light .fa-reorder:before, 
+.light .fa-bars:before {
+    color: #2a284f;
+}
+
+
+.dark .fa-remove:before, 
+.dark .fa-close:before, 
+.dark .fa-times:before {
+    color: white;
+}
+
+.light .fa-remove:before, 
+.light .fa-close:before, 
+.light .fa-times:before {
+    color: #2a284f;
+}
+
+select {
+    margin-left: 10px;
+}
+
+.button-container-header{
+    position: absolute;
+    right: 50px;
+
+}
+
+.button-container-header button {
+    margin: 3px;
+}
