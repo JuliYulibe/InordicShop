@@ -1,33 +1,51 @@
 import { useEffect } from 'react'
-import goodJSON from '../../stub/goods.json'
+
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import { createExtraActions } from '../../store/action/goods';
 import { UseSelector } from 'react-redux';
+import { Loader } from '../loader/loader';
 
 import './style.css';
 
 export function CatalogList() {
 
-    const {getAllGoods} = createExtraActions();
+    //Декомпозируем функции из обЪектв функций, который возвращает createExtraActions
+    const {getAllGoods, addToBasket} = createExtraActions();
     const dispatch = useDispatch()
 
-    const {goods: { test }} = useSelector((state) => state)
+    //Обращение к состоянию происходит при помощи useSelector
+    const goodList = useSelector((state) => state.goods.list)
     
+    
+    //Обработчик, который добавляет текущий товар в корзину
+    const handlerAddBasket = (good) => {
+        //Для того чтобы запустить редакс, нужновызвать функцию action внутри диспетчера
+        dispatch(
+            addToBasket(good)
+
+        )
+    }
 
 
     useEffect(() => {
         setTimeout(() => {
             dispatch(
-                getAllGoods
+                getAllGoods()
         )
         }, 4000)
     }, [])
-    console.log(goodJSON)
+
+    //Если в какой то момент времени, goodList из стэйта - это пусто массив
+    //Чтобы не показывать пустую страницу, выводит loader
+    if(goodList.length == 0) {
+    return <Loader />
+    }
+
     return (
         <div>
-            {test}
-            {goodJSON.map((goodItem) => {
+          
+            {goodList.map((goodItem) => {
                 return (
                     <li key={goodItem.ID} className='good-list'>
                         <img src={require(`../../assets/${goodItem.IMG}`)} />
@@ -44,9 +62,9 @@ export function CatalogList() {
                             <Link to={goodItem.ID}>
                                 <i className="fa fa-desktop" aria-hidden="true"></i>
                             </Link>
-                            <Link to={goodItem.ID}>
+                            <button onClick={() => handlerAddBasket(goodItem)}>
                                 <i className="fa fa-shopping-cart" aria-hidden="true"></i>
-                            </Link>
+                            </button>
                         </section>
                     </li>
                 )
